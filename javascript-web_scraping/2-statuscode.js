@@ -1,3 +1,5 @@
 #!/usr/bin/node
 
-require("https").get(process.argv[2], r => { console.log("code:", r.statusCode); });
+require("request").get(process.argv[2]).on("response", function (response) {
+    console.log(`code: ${response.statusCode}`);
+});
